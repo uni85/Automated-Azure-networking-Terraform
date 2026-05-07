@@ -1,6 +1,6 @@
 # Azure Hub and Spoke Network with Terraform
 
-A professional-grade networking project deploying a **Hub and Spoke** architecture in Azure using Terraform (Infrastructure as Code). This project demonstrates secure network design, cross-VNet connectivity, and automated resource provisioning.
+A professional-grade networking project deploying a **Hub and Spoke** architecture in Azure using Terraform (Infrastructure as Code). This project demonstrates secure network design, cross-VNet connectivity, and security best practices.
 
 ![Azure Architecture](./azure_architecture.png)
 
@@ -28,9 +28,53 @@ This repository contains Terraform configuration files to deploy a secure, scala
 1.  [Terraform](https://www.terraform.io/downloads) installed locally.
 2.  [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli) installed.
 3.  An active Azure Subscription (Student Credits used here).
-
+4.  
 ### Deployment Steps
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/uni85/Hub-and-Spoke-Network-with-Terraform.git](https://github.com/uni85/Hub-and-Spoke-Network-with-Terraform.git)
-   cd Hub-and-Spoke-Network-with-Terraform
+   git clone https://github.com/uni85/Automated-Azure-networking-Terraform.git
+   cd Automated-Azure-networking-Terraform
+   ```
+
+2. Authenticate with Azure:
+   ```bash
+   az login
+   ```
+
+3. Initialize Terraform:
+   ```bash
+   terraform init
+   ```
+
+4. Review the Terraform plan:
+   ```bash
+   terraform plan
+   ```
+
+5. Deploy the infrastructure:
+   ```bash
+   terraform apply
+   ```
+
+6. Confirm the deployment by typing `yes` when prompted.
+
+7. Retrieve the output values (public IPs, resource details):
+   ```bash
+   terraform output
+   ```
+
+### Accessing the VMs
+- **Hub VM (Jumpbox):** Use the public IP from Terraform output to SSH into the Hub VM.
+  ```bash
+  ssh -i <your-key.pem> azureuser@<hub-public-ip>
+  ```
+
+- **Spoke VM (Private):** Access the Spoke VM from within the Hub VM via private IP peering.
+
+## Cleanup
+To destroy all resources and avoid unnecessary Azure charges:
+```bash
+terraform destroy
+```
+
+Confirm by typing `yes` when prompted.
