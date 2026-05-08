@@ -10,6 +10,9 @@ This repository contains Terraform configuration files to deploy a secure, scala
 * **Spoke Virtual Network:** An isolated workload network with a private backend VM.
 * **VNet Peering:** High-speed, low-latency connection between the Hub and Spoke.
 * **Security:** Network Security Groups (NSGs) configured to allow SSH access only to the Hub, keeping the Spoke completely private.
+* 
+### 📝 Connectivity Test Logs
+<img width="741" height="266" alt="image" src="https://github.com/user-attachments/assets/a1b886f6-1824-4c44-a78d-e78e37ab1d15" />
 
 ## Tech Stack
 * **Cloud Provider:** Microsoft Azure
